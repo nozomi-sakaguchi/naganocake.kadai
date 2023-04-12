@@ -3,6 +3,7 @@ class Admin::ItemsController < ApplicationController
   def index
     @item = Item.new
     @items = Item.all
+    @price
   end
 
   def new
@@ -16,6 +17,8 @@ class Admin::ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(item_params)
+    
   end
 
   def edit

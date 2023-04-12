@@ -1,0 +1,21 @@
+<h4>商品詳細</h4>
+
+
+<% @item.each do |item| %>
+
+ <tbody>
+      <tr>
+          <td><%= item.id %></td>
+            <td><%= link_to admin_item_path(item.id) do %>
+                  <%= item.name %>
+                <% end %>
+            </td>
+            <td><%= item.introduction %></td>
+         
+        
+        <td><%= link_to  edit_admin_item_path(item.id)  do %>
+              編集画面
+            <% end %>
+        </td>
+      </tr>
+    </tbody>
