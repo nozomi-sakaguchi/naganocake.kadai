@@ -1,1 +1,50 @@
-<h1>customers_show</h1>
+
+
+<%= @customer.last_name  %><%= @customer.first_name  %>さんの会員詳細
+
+  <div class="form_group">
+    <label for= "customer_id">会員ID</label>
+    <%= @customer.id  %>
+  </div>
+
+  <div class="form_group">
+    <label for= "customer_name">氏名</label>
+    <%= @customer.last_name %><%= @customer.first_name %>
+  </div>
+
+  <div class="form_group">
+    <label for= "customer_name_kana">フリガナ</label>
+    <%= @customer.last_name_kana %><%= @customer.first_name_kana %>
+  </div>
+
+  <div class="form_group">
+    <label for= "customer_postal_code">郵便番号</label>
+    <%= @customer.postal_code %>
+  </div>
+
+  <div class="form_group">
+    <label for= "customer_address">住所</label>
+    <%= @customer.address %>
+  </div>
+
+  <div class="form_group">
+    <label for= "customer_telephne_number">電話番号</label>
+    <%= @customer.telephone_number %>
+  </div>
+
+  <div class="form_group">
+    <label for= "customer_email">メールアドレス</label>
+    <%= @customer.email %>
+  </div>
+
+  <div class="form_group">
+    <label for= "customer_is_deleted">会員ステータス</label>
+    <% if @customer.is_deleted == true %>
+      退会
+    <% else %>
+      有効
+    <% end %>
+  </div>
+
+<%= link_to '編集する', edit_admin_customer_path, class: "btn btn-success btn-sm" %>
+<%= link_to '注文履歴一覧をみる',  admin_root_path,class: "btn btn-info btn-sm"  %>

@@ -1,12 +1,14 @@
 <h4>商品詳細</h4>
 
+  <%= image_tag @items.get_image(300,300) %>
+
   <div class="form_group">
     <label for= "item_name">商品名</label>
     <%= @items.name %>
   </div>
 
   <div class="form_group">
-    <label for= "item_explanation">商品説明</label>
+    <label for= "item_introduction">商品説明</label>
     <%= @items.introduction %>
   </div>
 
@@ -17,7 +19,7 @@
 
   <div class="form_group">
     <label for= "item_price"> 税込価格(税抜価格）</label>
-    <%= @items.price*1.08  %>(<%= @items.price %>)円
+    <%= (@items.price*1.08).floor %>(<%= @items.price %>)円
   </div>
 
   <div class="form_group">
