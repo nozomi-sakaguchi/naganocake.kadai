@@ -1,0 +1,46 @@
+<h2>マイページ</h2>
+
+<div class= "group">
+ <label for= "customer_information"><strong>登録情報</strong></label>
+  <%= link_to "編集する", edit_customer_path(@customer.id), class:"btn btn-success btn-sm" %>
+</div>
+
+<div class="form_group">
+    <label for= "customer_name">氏名</label>
+    <%= @customer.last_name %><%= @customer.first_name %>
+  </div>
+
+  <div class="form_group">
+    <label for= "customer_name_kana">カナ</label>
+    <%= @customer.last_name_kana %><%= @customer.first_name_kana %>
+  </div>
+
+  <div class="form_group">
+    <label for= "customer_postal_code">郵便番号</label>
+    <%= @customer.postal_code %>
+  </div>
+
+  <div class="form_group">
+    <label for= "customer_address">住所</label>
+    <%= @customer.address %>
+  </div>
+
+  <div class="form_group">
+    <label for= "customer_telephne_number">電話番号</label>
+    <%= @customer.telephone_number %>
+  </div>
+
+  <div class="form_group">
+    <label for= "customer_email">メールアドレス</label>
+    <%= @customer.email %>
+  </div>
+
+<div class= "group">
+ <label for= "address"><strong>配送先</strong></label>
+  <%= link_to "一覧を見る", addresses_path(current_customer.id), class:"btn btn-primary btn-sm" %>
+</div>
+
+<div class= "group">
+ <label for= "oders"><strong>注文履歴</strong></label>
+  <%= link_to "一覧を見る", orders_path, class:"btn btn-primary btn-sm" %>
+</div>

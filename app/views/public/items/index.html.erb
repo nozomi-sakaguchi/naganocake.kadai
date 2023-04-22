@@ -1,0 +1,11 @@
+<h2>商品の一覧ページ</h2>(全<%= @items %>件）
+
+<% @item.each do |item| %>
+  <div class ="item_group">
+    <%= link_to item_path(item.id) do %>
+      <%= image_tag item.get_image(200,200) %><br>
+    <% end %>
+    <%= item.name %><br>
+    ¥<%= item.price %>
+  </div>
+<% end %>

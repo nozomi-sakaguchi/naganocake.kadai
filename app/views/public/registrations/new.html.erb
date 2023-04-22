@@ -21,7 +21,7 @@
     </div>
 
     <div class= "field">
-      <%= f.label :郵便番号（ハイフンなし） %>
+      <%= f.label :郵便番号 %>(ハイフンなし)
       <%= f.text_field :postal_code,  placeholder: "0000000" %>
     </div>
 
@@ -31,29 +31,31 @@
     </div>
 
     <div class= "field">
-      <%= f.label :電話番号（ハイフンなし） %>
+      <%= f.label :電話番号 %>(ハイフンなし)
       <%= f.text_field :telephone_number,  placehoder: "0000000000" %>
     </div>
 
     <div class="field">
       <%= f.label :パスワード %>
       <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <em>(<%= @minimum_password_length %> 文字以上)</em>
       <% end %>
       <%= f.password_field :password, autocomplete: "new-password" %>
     </div>
 
     <div class="field">
-      <%= f.label :パスワード %>
+      <%= f.label :パスワード %>(確認用)
       <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
     </div>
 
     <div class="actions">
-      <%= f.submit "新規登録" %>
+      <%= f.submit "新規登録", class: "btn btn-success btn-sm" %>
     </div>
 <% end %>
 
-  <h3>既に登録済みの方</h3>
+
+<h3>既に登録済みの方</h3>
+
     <div class= "actions">
-      <%= render "public/shared/links" %> <p>からログインしてください。</p>
+     <%= render "public/shared/links" %>からログインしてください。
     </div>
