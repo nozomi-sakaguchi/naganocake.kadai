@@ -1,5 +1,7 @@
 class Public::CartItemsController < ApplicationController
 
+  before_action :move_to_signed_in, expect: [:index]
+
   def index
     @cart_items = current_customer.cart_items.all
     @total = 0
@@ -31,7 +33,7 @@ class Public::CartItemsController < ApplicationController
        cart_item = CartItem.find_by(item_id: params[:cart_item][:item_id])
        cart_item.amount += params[:cart_item][:amount].to_i
        cart_item.update(amount: cart_item.amount)
-       redirect_to cart_items_path
+       redirect_to cartitems_path
     else @cart_item.save
     redirect_to cart_items_path
     end
@@ -43,4 +45,10 @@ class Public::CartItemsController < ApplicationController
       params.require(:cart_item).permit(:item_id, :amount  )
     end
 
+    def move_to_signed_in
+
+      unless customer_signed_in?
+        redirect_to root_path
+      end
+    end
 end

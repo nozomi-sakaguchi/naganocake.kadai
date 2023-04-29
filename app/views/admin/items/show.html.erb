@@ -1,8 +1,15 @@
-<h4>商品詳細</h4>
+<div class= "container">
+  <div class="row">
+    <h2 class="bg-light">商品詳細</h2>
+  </div>
 
-  <%= image_tag @items.get_image(300,300) %>
+  <div class ="row col-5">
+  <%= image_tag @items.get_image(500,500) %>
 
-  <div class="form_group">
+
+<div class="item col-7s">
+
+  <div class="form_group pb-3">
     <label for= "item_name">商品名</label>
     <%= @items.name %>
   </div>
@@ -18,19 +25,23 @@
   </div>
 
   <div class="form_group">
-    <label for= "item_price"> 税込価格(税抜価格）</label>
+    <label for= "item_price"> 税込価格<br>(税抜価格）</label>
     <%= (@items.price*1.08).floor %>(<%= @items.price %>)円
   </div>
 
   <div class="form_group">
-    <label for= "item_is_active">販売ステータス</label>
+    <label for= "item_is_active ">販売ステータス</label>
     <% if @items.is_active == true %>
       販売中
     <% else %>
       販売停止中
     <% end %>
   </div>
+</div>
 
+</div>
   <div class= "form-group">
     <%= link_to '編集する',edit_admin_item_path, class: "btn btn-success btn-sm" %>
+  </div>
+
   </div>

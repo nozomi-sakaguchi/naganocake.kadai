@@ -1,14 +1,14 @@
 <div class = "container">
   <div class = "row">
-
-<h2>ジャンル編集</h2>
-
-<%= form_with model: @genre, url:admin_genre_path do |f| %>
-  <div class="form-group">
-    <label for ="genre_name">ジャンル名</label><br>
-    <%= f.text_field :name, auotfocus: true, id: "genre_name" %>
-    <%= f.submit "変更を保存", class: "btn btn-success btn-sm" %>
+    <h2 class= "bg-light mb-5">ジャンル編集</h2>
   </div>
-<% end %>
-</div>
+
+
+  <%= form_with model: @genre, url:admin_genre_path do |f| %>
+    <div class="row">
+      <label for ="genre_name" >ジャンル名</label><br>
+      <%= f.text_field :name, auotfocus: true, id: "genre_name", class: " ml-5" %>
+      <%= f.submit "変更を保存", class: "btn btn-success btn-ml ml-5" %>
+    </div>
+  <% end %>
 </div>

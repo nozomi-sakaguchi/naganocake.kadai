@@ -12,10 +12,11 @@ Rails.application.routes.draw do
     get    root to: 'homes#top'
     get    'about'                   => 'homes#about'
     get    '/customers/secession'    => 'customers#secession'
+    post   '/orders/confirm'         => 'orders#confirm'
+    get    '/orders/thanks'          => 'orders#thanks'
     patch  '/customers/withdrawal'   => 'customers#withdrawal'
     delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
-    post   '/orders/confirm'         => 'orders#comfirm'
-    get    '/orders/thanks'          => 'orders#thanks'
+
 
     resources :items,       only: [:index, :show]
     resources :customers,   only: [:show, :edit, :update]

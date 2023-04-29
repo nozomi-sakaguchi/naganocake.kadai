@@ -1,8 +1,8 @@
 class Public::ItemsController < ApplicationController
 
   def index
-    @item = Item.all
-    @items = @item.count
+    @items = Item.all
+    @item = @items.count
   end
 
   def show

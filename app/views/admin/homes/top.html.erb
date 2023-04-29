@@ -1,1 +1,26 @@
-<h1>注文履歴一覧</h1>
+<div class= "container pt-5" >
+  <div class ="col-md-8">
+    <h2 class= "pb-3">注文履歴一覧</h2>
+
+    <table class = table table-striped">
+      <thead>
+        <tr style="background-color: whitesmoke;">
+          <th>購入日時</th>
+          <th>購入者</th>
+          <th>注文個数</th>
+        </tr>
+      </thead>
+
+    <% @orders.each do |order| %>
+      <tbody>
+        <tr>
+          <td><%= link_to ( l order.created_at) , admin_order_path(order.id) %>
+          </td>
+          <td><%= order.name %></td>
+          <td><%= order.order_items.sum(:amount) %></td>
+        </tr>
+      </tbody>
+    <% end %>
+    </table>
+  </div>
+</div>

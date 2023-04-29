@@ -1,0 +1,73 @@
+<div class="container mt-5">
+
+  <div class="row justify-content-center ">
+    <h2 class= "bg-light" >注文履歴詳細</h2>
+  </div>
+
+  <div class="row  justify-content-center">
+    <div class="order mr-5">
+      <h3>注文情報</h3>
+
+      <table border= "1">
+        <tr>
+          <th bgcolor= "whitesmoke" >注文日</th>
+          <td><%=  l @order.created_at %></td>
+        </tr>
+        <tr>
+          <th bgcolor= "whitesmoke" >配送先</th>
+          <td><%= @order.address %></td>
+        </tr>
+        <tr>
+          <th bgcolor= "whitesmoke" >支払い方法</th>
+          <td><%= @order.payment_methods_i18n %></td>
+        </tr>
+      </table>
+    </div>
+
+
+    <div class="order ml-5 ">
+      <h3>請求情報</h3>
+        <table border= "1">
+          <tr  >
+            <th bgcolor= "whitesmoke">商品合計</th>
+            <td><%= @order.payment_amount %></td>
+          </tr>
+          <tr>
+            <th bgcolor= "whitesmoke">配送料</th>
+            <td><%= 800 %></td>
+          </tr>
+          <tr>
+            <th bgcolor= "whitesmoke">ご請求額</th>
+            <td><%= @total += @order.payment_amount + 800 %></td>
+          </tr>
+        </table>
+    </div>
+  </div>
+
+  <div class="row  justify-content-center mt-5">
+    <div class="order ">
+    <h2>注文内容</h2>
+      <table border= "1">
+        <thead>
+          <tr  bgcolor= "whitesmoke" >
+            <th>商品</th>
+            <th>単価(税込)</th>
+            <th>個数</th>
+            <th>小計</th>
+          </tr>
+         </thead>
+
+      <tbody>
+        <% @order.order_items.each do | order_item | %>
+        <tr>
+          <td><%= order_item.item.name %></td>
+          <td><%= (order_item.item.price*1.08).floor %></td>
+          <td><%= order_item.amount %></td>
+          <td><%=(order_item.item.price*1.08).floor * (order_item.amount) %> </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>

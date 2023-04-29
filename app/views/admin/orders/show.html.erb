@@ -1,1 +1,42 @@
-<h1>orders_show</h1>
+<div class="container">
+
+<h2>注文履歴詳細</h2>
+
+<table>
+  <tr><th>購入者</th><td><%= @order.customer.last_name %><%= @order.customer.first_name %></td></tr>
+  <tr><th>注文日</th><td><%=  l @order.created_at %></td></tr>
+  <tr><th>配送先</th><td><%= @order.postal_code %><%= @order.address %><%= @order.name %></td></tr>
+  <tr><th>支払方法</th><td><%= @order.payment_methods_i18n %></td></tr>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>商品名</th>
+      <th>単価（税込）</th>
+      <th>数量</th>
+      <th>小計</th>
+      <th></th>
+    </tr>
+  </thead>
+
+
+<% @order.order_items.each do |order_item| %>
+  <tbody>
+    <tr>
+      <td><%= order_item.item.name %></td>
+      <td><%= (order_item.item.price*1.1).floor %></td>
+      <td><%= order_item.amount %></td>
+      <td><%=((order_item.item.price*1.1).floor)*order_item.amount %></td>
+    </tr>
+  </tbody>
+<% end %>
+
+ <% @total= @order.payment_amount %>
+</table>
+
+<tr><th>商品合計</th><%= @total-800 %><td></td></tr>
+<tr><th>送料</th><td><%= 800 %></td></tr>
+<tr><th>請求金額合計</th><td><%=  @total %></td></tr>
+
+</div>
